@@ -6,7 +6,13 @@ class Users::SessionsController < Devise::SessionsController
       sign_in(user)
       redirect_to after_sign_in_path_for(user)
     else
+      @resource = User.new
       render :new
     end
+  end
+
+  def new
+    @resource = User.new 
+    super
   end
 end

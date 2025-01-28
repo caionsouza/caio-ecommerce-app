@@ -6,8 +6,7 @@
 
     <div class="col-lg-4">
       <h2 class="text-center mb-4">Log in</h2>
-
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'needs-validation', novalidate: true }) do |f| %>
+      <%= form_for(@resource, as: resource_name, url: session_path(resource_name), html: { class: 'needs-validation', novalidate: true }) do |f| %>
         <div class="d-flex justify-content-end">
           <div class="mb-3 w-100">
             <%= f.label :login, class: "form-label" %>
