@@ -1,4 +1,4 @@
-Ecommerce Application
+# Ecommerce Application
 Este é um exemplo de aplicação de Ecommerce desenvolvida com Ruby on Rails. A aplicação é destinada a fornecer uma plataforma para exibir produtos, realizar autenticação de usuários e gerenciar o carrinho de compras.
 
 Funcionalidades
