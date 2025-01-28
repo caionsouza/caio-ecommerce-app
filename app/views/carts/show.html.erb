@@ -31,7 +31,12 @@
             </td>
 
             <td>
-              <%= item.quantity %>
+              <%= form_with url: cart_update_item_quantity_path(current_user.cart, cart_item_id: item.id), method: :patch, local: true do |f| %>
+                <div class="input-group input-group-sm">
+                  <%= f.number_field :quantity, value: item.quantity, class: 'form-control', min: 1 %>
+                  <button type="submit" class="btn btn-secondary btn-sm ms-2">Atualizar</button>
+                </div>
+              <% end %>
             </td>
 
             <td>

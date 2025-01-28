@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     post 'add_item_to_user_cart', on: :member
     delete 'remove_item/:id', to: 'carts#remove_item', as: 'remove_item'
     get 'checkout', to: 'carts#checkout', as: 'checkout'
+    patch 'update_item_quantity/:cart_item_id', to: 'carts#update_item_quantity', as: 'update_item_quantity'
+  
     resources :cart_items, only: [:destroy]
   end
 

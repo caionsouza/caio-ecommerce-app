@@ -52,6 +52,27 @@ class CartsController < ApplicationController
     end
   end
 
+  def update_item_quantity
+    @cart = current_user.cart
+    @cart_item = @cart.cart_items.find(params[:cart_item_id])
+
+    requested_quantity = params[:quantity].to_i 
+
+    if requested_quantity > @cart_item.product.stock
+      redirect_to cart_path(@cart), alert: "Quantidade disponível excede o estoque."
+      return
+    end
+    
+    previous_quantity = @cart_item.quantity
+
+    if @cart_item.update(quantity: params[:quantity])
+      @cart_item.product.update(stock: @cart_item.product.stock - (requested_quantity - previous_quantity))
+      redirect_to cart_path(@cart), notice: 'Quantidade atualizada com sucesso.'
+    else
+      redirect_to cart_path(@cart), alert: 'Erro ao atualizar a quantidade.'
+    end
+  end
+
   private
 
   def set_cart
