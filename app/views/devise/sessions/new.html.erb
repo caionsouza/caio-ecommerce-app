@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-lg-6 d-flex justify-content-center mb-4 mb-lg-0 pr-lg-4">
+      <%= image_tag "shopping-5200288_1280.jpg", alt: "Login Image", class: "img-fluid rounded-circle" %>
+    </div>
+
+    <div class="col-lg-4">
+      <h2 class="text-center mb-4">Log in</h2>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'needs-validation', novalidate: true }) do |f| %>
+        <div class="d-flex justify-content-end">
+          <div class="mb-3 w-100">
+            <%= f.label :login, class: "form-label" %>
+            <%= f.text_field :login, class: "form-control", required: true %>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <div class="mb-3 w-100">
+            <%= f.label :password, class: "form-label" %>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", required: true %>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <%= f.submit "Log in", class: "btn btn-primary w-50" %>
+        </div>
+      <% end %>
+
+      <div class="d-flex justify-content-end">    
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

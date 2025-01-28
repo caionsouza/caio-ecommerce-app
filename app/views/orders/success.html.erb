@@ -1,0 +1,7 @@
+<div class="container mt-5">
+  <h2 class="text-center">Compra realizada com sucesso!</h2>
+  <p class="text-center">Seu pedido foi registrado com sucesso. O valor total da sua compra é: <%= number_to_currency(@order.total_price) %></p>
+  <div class="text-center">
+    <%= link_to 'Voltar para os Produtos', products_path, class: "btn btn-primary" %>
+  </div>
+</div>

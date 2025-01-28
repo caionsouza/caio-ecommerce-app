@@ -1,0 +1,61 @@
+<div class="container mt-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-lg-6 d-flex justify-content-center mb-4 mb-lg-0 pr-lg-4">
+      <%= image_tag "shopping-5200288_1280.jpg", alt: "Signup Image", class: "img-fluid rounded-circle" %>
+    </div>
+
+    <div class="col-lg-4">
+      <h2 class="text-center mb-4">Sign up</h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'needs-validation', novalidate: true }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="d-flex justify-content-end">
+          <div class="mb-3 w-100">
+            <%= f.label :nome, "Nome:", class: "form-label" %>
+            <%= f.text_field :nome, required: true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <div class="mb-3 w-100">
+            <%= f.label :cpf, "CPF:", class: "form-label" %>
+            <%= f.text_field :cpf, required: true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <div class="mb-3 w-100">
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <div class="mb-3 w-100">
+            <%= f.label :password, class: "form-label" %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <div class="mb-3 w-100">
+            <%= f.label :password_confirmation, class: "form-label" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <%= f.submit "Sign up", class: "btn btn-primary w-50" %>
+        </div>
+      <% end %>
+
+      <div class="d-flex justify-content-end">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

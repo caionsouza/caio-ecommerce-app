@@ -1,0 +1,45 @@
+<div class="col-lg-10 mx-auto mt-5">
+  <h1>Catálogo de Produtos</h1>
+  
+
+  <div class="card mt-4 mb-4">
+    <div class="card-body">
+      <h3 class="text-center mb-3">Procure pelo produto que deseja:</h3>
+      <%= search_form_for @q, url: root_path do |product_form| %>
+        <div class="input-group mb-3">
+          <%= product_form.search_field :name_cont, class: "form-control", placeholder: "Procure pelo nome do produto" %>
+          <%= product_form.submit "Buscar", class: "btn btn-primary ms-2" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-start align-items-center mb-4">
+    <h5 class="mb-0 me-3">Ordenar por:</h5>
+    <%= link_to "Nome (A-Z)", root_path(sort: "name_asc", q: params[:q]), class: "btn btn-outline-primary btn-sm me-2" %>
+    <%= link_to "Nome (Z-A)", root_path(sort: "name_desc", q: params[:q]), class: "btn btn-outline-primary btn-sm me-2" %>
+    <%= link_to "Preço (Menor-Maior)", root_path(sort: "price_asc", q: params[:q]), class: "btn btn-outline-primary btn-sm me-2" %>
+    <%= link_to "Preço (Maior-Menor)", root_path(sort: "price_desc", q: params[:q]), class: "btn btn-outline-primary btn-sm" %>
+  </div>
+
+  <div class="row mt-4 mb-4">
+    <% @products.each do |product| %>
+      <div class="product col-lg-4 mb-4 mt-4">
+        <div class="card text-center shadow" style="min-height: 400px">
+          <div class="card-body h-25 d-inline-block w-100 p-3">
+            <% if product.image.present? %>
+              <%= image_tag product.image, alt: product.name, style: "height: 200px; width: 200px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); outline: none;", class: "mb-3" %>
+            <% end %>
+            <div class="product-info">
+              <h5 class="h-50"><%= product.name %></h5>
+              <p class="lead"><%= number_to_currency(product.price) %></p>
+              <small class="text-primary">
+                <%= link_to "Detalhes", product_path(product), class: "btn btn-primary mt-3" %>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
