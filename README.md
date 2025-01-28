@@ -41,7 +41,7 @@ Yarn (opcionalmente necessário para dependências front-end)
 Clone o repositório para o seu diretório local:
 
 bash
-git clone https://github.com/SEU-USUARIO/caio-ecommerce-app.git
+git clone https://github.com/caionsouza/caio-ecommerce-app.git
 
 cd caio-ecommerce-app.git
 
