@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :validatable
   has_one :cart
   has_many :orders
+  after_create :create_user_cart
   attr_writer :login
 
   def login
@@ -20,5 +21,9 @@ class User < ApplicationRecord
     end
     Rails.logger.debug("User found: #{user.inspect}")  # Log para o usuário encontrado
     return user
+  end
+
+  def create_user_cart
+    Cart.create(user: self) if self.cart.nil?
   end
 end
