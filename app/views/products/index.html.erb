@@ -32,7 +32,7 @@
             <% end %>
             <div class="product-info">
               <h5 class="h-50"><%= product.name %></h5>
-              <p class="lead"><%= number_to_currency(product.price) %></p>
+              <p class="lead"><%= number_to_currency(product.price, unit: 'R$') %></p>
               <small class="text-primary">
                 <%= link_to "Detalhes", product_path(product), class: "btn btn-primary mt-3" %>
               </small>

@@ -2,13 +2,14 @@
   <div class="card mb-5"> 
     <div class="row">
       <div class="col-lg-4">
-        <%= image_tag @product.image, class: "img-fluid"%>
+        <%= image_tag @product.image, class: "img-fluid rounded-3", style: "padding: 15px;" %>
       </div>
+      
       <div class="col-lg-8">
         <div class="card-body">
-          <h3 class="fw-bold"><%= @product.name %></h3>
-          <p class="lead"><%=@product.description%></p>
-          <p class="lead"><%=@product.price%></p>
+          <h3 class="fw-bold mb-3"><%= @product.name %></h3>
+          <p class="lead mb-3"><%= @product.description %></p>
+          <p class="lead fs-5 text-success"><%= number_to_currency(@product.price, unit: 'R$') %></p>
         </div>
       </div>
     </div>
@@ -19,15 +20,18 @@
       <div class="row">
         <div>
           <%= form_with url: add_item_to_user_cart_cart_path, method: :post, remote: true do |f| %>
-            <div class="d-flex bd-highlight">
-              <div class="p-2 flex-grow-1 bd-highlight">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="p-2">
                 <%= f.hidden_field :product_id, value: @product.id %>
                 <%= f.label :quantity, "Quantidade" %>
-                <%= f.number_field :quantity, value: 1, min: 1%>
+                <%= f.number_field :quantity, value: 1, min: 1, class: "form-control" %>
               </div>
-              <div class="p-2 bd-highlight"><%= f.submit "Adicionar ao Carrinho", class: "btn btn-primary" %></div>
-            </div>           
-          <%end%>
+              
+              <div class="p-2">
+                <%= f.submit "Adicionar ao Carrinho", class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
