@@ -25,7 +25,7 @@ gem 'cssbundling-rails'
 gem 'faker'
 gem 'bootstrap', '~> 5.1'
 gem 'mini_magick'
-gem 'rspec-rails', '~> 6.0', group: %i[development test]
+gem 'rspec-rails', '~> 7.1', group: %i[development test]
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
