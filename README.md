@@ -1,7 +1,5 @@
 # Ecommerce Application
 
-https://caio-ecommerce-application-70142fe0221a.herokuapp.com/
-
 Este é um exemplo de aplicação de Ecommerce desenvolvida com Ruby on Rails. A aplicação é destinada a fornecer uma plataforma para exibir produtos, realizar autenticação de usuários e gerenciar o carrinho de compras.
 
 Funcionalidades
